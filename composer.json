@@ -1,0 +1,14 @@
+{
+  "name": "elpho/database",
+  "description": "ORM for the elpho framework",
+  "require": {
+    "elpho/event": ">=0.0.0",
+    "elpho/lang": ">=0.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "elpho\\database\\": "src/"
+    }
+  },
+  "license": "ISC"
+}
