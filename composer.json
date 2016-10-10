@@ -2,8 +2,8 @@
   "name": "elpho/database",
   "description": "ORM for the elpho framework",
   "require": {
-    "elpho/event": ">=0.0.0",
-    "elpho/lang": ">=0.0.0"
+    "elpho/event": "0.1.*",
+    "elpho/lang": "0.1.*"
   },
   "autoload": {
     "psr-4": {
