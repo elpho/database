@@ -10,7 +10,7 @@
     private $entityClass = null;
     private $entityShortName = null;
 
-    public function __construct(PDO $connection, string $entityClass){
+    public function __construct(\PDO $connection, $entityClass){
       $this->connection = $connection;
       $this->entityClass = $entityClass;
       $this->entityShortName = basename(str_replace('\\','/',$this->entityClass));
