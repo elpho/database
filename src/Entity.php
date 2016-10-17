@@ -126,7 +126,7 @@
         return;
 
       if(is_object($options) and !($options instanceof Object))
-          return;
+        return;
 
       $prepared = new \stdClass();
 
