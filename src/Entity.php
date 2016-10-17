@@ -198,6 +198,10 @@
       $this->position = -1;
       $this->inPosition = false;
       $this->record = new \stdClass();
+
+      foreach ($this->fieldList as $name) {
+        $this->record->{$name} = null;
+      }
     }
     public function first(){
       $this->position = 0;
