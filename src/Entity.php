@@ -7,6 +7,8 @@
   use elpho\lang\Object;
   use elpho\event\EventHandler;
 
+  use elpho\database\event as event;
+
   abstract class Entity extends EventHandler{
     private $table;
     private $position;
