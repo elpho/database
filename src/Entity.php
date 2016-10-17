@@ -7,8 +7,6 @@
   use elpho\lang\Object;
   use elpho\event\EventHandler;
 
-  use elpho\database\event as event;
-
   abstract class Entity extends EventHandler{
     private $table;
     private $position;
@@ -201,6 +199,8 @@
       $this->inPosition = false;
       $this->record = new \stdClass();
 
+      $this->record->{$this->keyField} = '';
+
       foreach ($this->fieldList as $name) {
         $this->record->{$name} = '';
       }
@@ -297,7 +297,7 @@
       $this->records[] = $this->record;
       $this->hasRecords = true;
 
-      $eventClass = $isNew?"event\Create":"event\Update";
+      $eventClass = 'elpho\database\event\\'.($isNew?"Create":"Update");
       $this->dispatchEvent(new $eventClass($result,$options));
 
       return $isNew;
