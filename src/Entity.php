@@ -111,7 +111,7 @@
       return $this->position;
     }
     public function getFieldList(){
-      return new ArrayList_from($this->fieldList);
+      return new \elpho\lang\ArrayList_from($this->fieldList);
     }
 
     //buscar
@@ -261,7 +261,7 @@
       if(empty($this->table))
         throw new DatabaseException("No table set.");
 
-      $options = new stdClass();
+      $options = new \stdClass();
 
       $query = 'create';
       $isNew = ((!$this->inPosition) or ($this->getId() == ""));
@@ -310,7 +310,7 @@
       $key = $this->keyField;
 
       $query = 'delete';
-      $options = new stdClass();
+      $options = new \stdClass();
       $options->{$key} = $this->getId();
 
       $this->connection->beginTransaction();
