@@ -200,7 +200,7 @@
       $this->record = new \stdClass();
 
       foreach ($this->fieldList as $name) {
-        $this->record->{$name} = null;
+        $this->record->{$name} = '';
       }
     }
     public function first(){
