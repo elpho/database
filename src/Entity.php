@@ -330,7 +330,7 @@
     //extra
     public function __get($attribute){
       if(!isset($this->record->{$attribute}))
-        throw new Exception("Field $attribute not found");
+        throw new \Exception("Field $attribute not found");
 
       $value = $this->record->{$attribute};
       $value = mb_detect_encoding($value, 'UTF-8', true)?$value:utf8_encode($value);
