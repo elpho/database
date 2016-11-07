@@ -1,10 +1,10 @@
 <?php
   namespace elpho\database;
 
-  use elpho\lang\String;
+  use elpho\lang\Text;
   use elpho\lang\ArrayList;
   use elpho\lang\Dynamic;
-  use elpho\lang\Object;
+  use elpho\lang\ProtoObject;
   use elpho\event\EventHandler;
 
   abstract class Entity extends EventHandler{
@@ -83,12 +83,12 @@
       return $this->table;
     }
     public function getRecord(){
-      return (new Object($this->record))->duplicate()->toPrimitive();
+      return (new ProtoObject($this->record))->duplicate()->toPrimitive();
     }
     public function getRecords(){
       $new = array();
       foreach($this->records as $rec){
-        $new[] = (new Object($rec))->duplicate()->toPrimitive();
+        $new[] = (new ProtoObject($rec))->duplicate()->toPrimitive();
       }
       return $new;
     }
@@ -125,7 +125,7 @@
       if(!is_array($options) and !is_object($options))
         return;
 
-      if(is_object($options) and !($options instanceof Object))
+      if(is_object($options) and !($options instanceof ProtoObject))
         return;
 
       $prepared = new \stdClass();
@@ -340,7 +340,7 @@
 
       $value = $this->record->{$attribute};
       $value = mb_detect_encoding($value, 'UTF-8', true)?$value:utf8_encode($value);
-      return new String($value);
+      return new Text($value);
     }
     public function __set($attribute,$value){
       if (!in_array($attribute, $this->fieldList))
